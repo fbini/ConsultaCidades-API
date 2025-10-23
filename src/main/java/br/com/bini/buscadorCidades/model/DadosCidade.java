@@ -1,4 +1,4 @@
-package br.com.bini.buscadorClimatico.model;
+package br.com.bini.buscadorCidades.model;
 
 import com.fasterxml.jackson.annotation.JsonAlias;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;

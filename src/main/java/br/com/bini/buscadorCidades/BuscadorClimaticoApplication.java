@@ -1,6 +1,6 @@
-package br.com.bini.buscadorClimatico;
+package br.com.bini.buscadorCidades;
 
-import br.com.bini.buscadorClimatico.principal.Principal;
+import br.com.bini.buscadorCidades.principal.Principal;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;

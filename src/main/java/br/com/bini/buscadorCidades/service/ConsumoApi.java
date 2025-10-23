@@ -1,6 +1,6 @@
-package br.com.bini.buscadorClimatico.service;
+package br.com.bini.buscadorCidades.service;
 
-
+import java.io.IOException;
 import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
@@ -16,8 +16,10 @@ public class ConsumoApi {
             HttpResponse<String> response = client.send(request, HttpResponse.BodyHandlers.ofString());
             return response.body();
 
-        } catch (Exception e) {
-            throw new RuntimeException("Erro ao consultar API: " + e.getMessage());
+        } catch (IOException e) {
+            throw new RuntimeException("Erro ao consultar API: " + e.getMessage(), e);
+        } catch (InterruptedException e) {
+            throw new RuntimeException(e);
         }
     }
 }

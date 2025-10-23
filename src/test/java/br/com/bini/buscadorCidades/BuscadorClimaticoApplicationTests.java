@@ -1,4 +1,4 @@
-package br.com.bini.buscadorClimatico;
+package br.com.bini.buscadorCidades;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;

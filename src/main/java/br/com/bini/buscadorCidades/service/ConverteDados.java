@@ -1,10 +1,11 @@
-package br.com.bini.buscadorClimatico.service;
+package br.com.bini.buscadorCidades.service;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
 public class ConverteDados {
     //ObjectsMapper é um objeto da biblioteca do Jackson
+    //Permite converter JSON → objeto Java e também objeto Java
     private ObjectMapper mapper = new ObjectMapper();
 
     public <T> T obterDados(String json, Class<T> classe) {
@@ -18,5 +19,4 @@ public class ConverteDados {
             throw new RuntimeException(e);
         }
     }
-
 }
