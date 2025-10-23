@@ -16,31 +16,42 @@ public class Principal {
     private final String ENDERECO = "https://geocoding-api.open-meteo.com/v1/search?name=";
 
     public void exibeMenu() {
-        System.out.println("Digite o nome da cidade: ");
+        while (true) {
+            System.out.println("-------------------------");
+            System.out.println("Digite o nome da cidade (ou 1 para sair): ");
+            System.out.println("--------------------------");
 
-        var nomeCidade = teclado.nextLine();
+            var entrada = teclado.nextLine();
 
-        var json = consumoApi.obterDados(ENDERECO + nomeCidade.replace(" ", "%20"));
-        var dadosCidade = converteDados.obterDados(json, DadosCidade.class);
+            if (entrada.equals("1")) {
+                System.out.println("Programa encerrado");
+                break;
+            }
 
-        if (dadosCidade == null || dadosCidade.resultados() == null || dadosCidade.resultados().isEmpty()) {
-            System.out.println("Nenhuma cidade encontrada para o nome informado: " + nomeCidade);
-        } else {
-            dadosCidade.resultados().forEach(cidade -> {
-                System.out.println("Cidade: " + cidade.nome());
-                System.out.println("País: " + cidade.pais());
-                System.out.println("Estado: " + cidade.estado());
-                System.out.println("Domínio: " + cidade.dominio());
-                System.out.println("Fuso horário: " + cidade.fusoHorario());
-                System.out.println("População: " + cidade.populacao());
+            String nomeCidade = entrada;
 
-                System.out.println("Latitude: " + cidade.latitude());
-                System.out.println("Longitude: " + cidade.longitude());
-                System.out.println("Elevação: " + cidade.elevacao());
+            var json = consumoApi.obterDados(ENDERECO + nomeCidade.replace(" ", "%20"));
+            var dadosCidade = converteDados.obterDados(json, DadosCidade.class);
 
-                System.out.println("------------------------------------");
-            });
+            if (dadosCidade == null || dadosCidade.resultados() == null || dadosCidade.resultados().isEmpty()) {
+                System.out.println("Nenhuma cidade encontrada para o nome informado: " + nomeCidade);
+            } else {
+                dadosCidade.resultados().forEach(cidade -> {
+                    System.out.println("Cidade: " + cidade.nome());
+                    System.out.println("País: " + cidade.pais());
+                    System.out.println("Estado: " + cidade.estado());
+                    System.out.println("Domínio: " + cidade.dominio());
+                    System.out.println("Fuso horário: " + cidade.fusoHorario());
+                    System.out.println("População: " + cidade.populacao());
+
+                    System.out.println("Latitude: " + cidade.latitude());
+                    System.out.println("Longitude: " + cidade.longitude());
+                    System.out.println("Elevação: " + cidade.elevacao());
+
+                    System.out.println("------------------------------------");
+                });
+            }
+
         }
-
     }
 }
