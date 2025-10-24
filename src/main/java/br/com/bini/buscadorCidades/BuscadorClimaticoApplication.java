@@ -14,7 +14,7 @@ public class BuscadorClimaticoApplication implements CommandLineRunner {
 
 	@Override
 	public void run(String... args){
-		new Principal().exibeMenu();
+        new Principal().exibeMenu();
 
 	}
 }

@@ -48,7 +48,7 @@ public class Principal {
                     System.out.println("Longitude: " + cidade.longitude());
                     System.out.println("Elevação: " + cidade.elevacao());
 
-                    System.out.println("------------------------------------");
+                    System.out.println("###################################");
                 });
             }
 
